@@ -1,3 +1,6 @@
+/**
+ * @Autor Grupo3
+ */
 public class Switch extends Componente {
     private boolean estado;
 

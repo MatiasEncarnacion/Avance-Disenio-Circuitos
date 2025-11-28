@@ -1,3 +1,6 @@
+/**
+ * @Autor Grupo3
+ */
 public class Capacitor extends Componente{
     private float capacitancia;
     private float cargaElectrica;

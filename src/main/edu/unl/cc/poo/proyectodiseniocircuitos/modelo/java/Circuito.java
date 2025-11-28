@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @Autor Grupo3
+ */
 public class Circuito {
     private List<Componente> componentes;
 

@@ -1,5 +1,7 @@
 import java.util.Objects;
-
+/**
+ * @Autor Grupo3
+ */
 public abstract class Componente {
     private float voltaje;
     private float corriente;

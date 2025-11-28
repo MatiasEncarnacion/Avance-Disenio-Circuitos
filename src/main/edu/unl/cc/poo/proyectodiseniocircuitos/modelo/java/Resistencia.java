@@ -1,3 +1,6 @@
+/**
+ * @Autor Grupo3
+ */
 public class Resistencia extends Componente {
     private static int nResistencia = 0;
 

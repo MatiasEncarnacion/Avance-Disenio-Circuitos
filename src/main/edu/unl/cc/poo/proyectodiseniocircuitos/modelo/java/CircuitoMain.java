@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @Autor Grupo3
+ */
 public class CircuitoMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

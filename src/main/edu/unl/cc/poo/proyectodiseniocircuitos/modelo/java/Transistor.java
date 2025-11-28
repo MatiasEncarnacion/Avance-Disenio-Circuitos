@@ -1,3 +1,6 @@
+/**
+ * @Autor Grupo3
+ */
 public class Transistor extends Componente{
     private float frecuencia;
 

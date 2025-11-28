@@ -1,3 +1,6 @@
+/**
+ * @Autor Grupo3
+ */
 public class Fuente extends Componente{
 
     public Fuente(){
