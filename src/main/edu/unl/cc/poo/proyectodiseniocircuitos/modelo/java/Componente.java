@@ -32,14 +32,13 @@ public abstract class Componente {
         this.voltaje = voltaje;
     }
 
-    public void calcularCorriente(float voltaje, int resistencia) {
+    public void calcularCorriente(float voltaje, int resistencia) throws Exception {
         float corriente = 0;
-        try {
-            corriente = voltaje / resistencia;
+        if (resistencia <= 0){
+                throw new Exception("Resistencia menor o igual a 0");
 
-        } catch (ArithmeticException e) {
-            System.out.println("Resistencia no puede ser igual a 0, "+e.getMessage());
         }
+            corriente = voltaje / resistencia;
         this.corriente = corriente;
     }
 
