@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @Autor Grupo3
  */
 public class CircuitoMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido al Simulador de Circuitos");
         System.out.println("Seleccione el valor de la fuente de voltaje");
