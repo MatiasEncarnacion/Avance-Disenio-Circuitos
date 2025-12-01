@@ -21,8 +21,9 @@ public class Switch extends Componente {
         return estado;
     }
 
+    @Override
     public void setEstado(boolean estado) {
-        this.estado = estado;
+        cambiarEstado(estado);
     }
 
     @Override
