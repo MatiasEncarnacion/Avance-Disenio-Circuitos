@@ -7,7 +7,10 @@ public abstract class Componente {
     private float corriente;
     private int resistencia;
     private float potencia;
+    private float capacitancia;
     private TipoMedida medida;
+    private boolean estado;
+    private float frecuencia;
 
     public Componente() {
     }
@@ -32,24 +35,34 @@ public abstract class Componente {
         this.voltaje = voltaje;
     }
 
-    public void calcularCorriente(float voltaje, int resistencia) throws Exception {
+    public void calcularCorriente(float voltaje, int resistencia) {
         float corriente = 0;
-        if (resistencia <= 0){
-                throw new Exception("Resistencia menor o igual a 0");
-
+        try {
+            if(resistencia <= 0){
+                this.corriente = 0;
+                throw new ArithmeticException("Resistencia no puede ser menor o igual a 0");
+            } else{
+                corriente = voltaje / resistencia;
+                this.corriente = corriente;
+            }
+        } catch (ArithmeticException e) {
+            System.err.println(e.getLocalizedMessage());
         }
-            corriente = voltaje / resistencia;
-        this.corriente = corriente;
     }
 
     public void calcularResistencia(float corriente, float voltaje){
         int resistencia = 0;
         try{
-            resistencia = (int) (voltaje/corriente);
+            if(corriente <= 0){
+                this.resistencia = 0;
+                throw new ArithmeticException("corriente no puede ser menor o igual a 0");
+            } else{
+                resistencia = (int) (voltaje/corriente);
+                this.resistencia = resistencia;
+            }
         } catch (ArithmeticException e) {
-            System.out.println("Corriente no puede ser igual a 0, "+e.getMessage());
+            System.err.println(e.getLocalizedMessage());
         }
-        this.resistencia = resistencia;
     }
 
     public void calcularPotencia(float voltaje, float corriente){
@@ -65,11 +78,16 @@ public abstract class Componente {
     public void calcularPotencia(double voltaje, float resistencia){
         float potencia = 0;
         try {
-            potencia = (float)Math.sqrt(voltaje)/resistencia;
-        } catch (IllegalArgumentException e) {
-            System.out.println("Resistencia no puede ser igual a 0, "+e.getMessage());
+            if(resistencia <= 0){
+                this.potencia = 0;
+                throw new ArithmeticException("resistencia no puede ser menor o igual a 0");
+            } else{
+                potencia = (float)Math.sqrt(voltaje)/resistencia;
+                this.potencia = potencia;
+            }
+        } catch (ArithmeticException e) {
+            System.err.println(e.getLocalizedMessage());
         }
-        this.potencia = potencia;
     }
 
     public float getVoltaje() {
@@ -104,12 +122,28 @@ public abstract class Componente {
         this.potencia = potencia;
     }
 
+    public float getCapacitancia(){
+        return capacitancia;
+    }
+
+    public void setCapacitancia(float capacitancia) {
+        this.capacitancia = capacitancia;
+    }
+
     public TipoMedida getMedida() {
         return medida;
     }
 
     public void setMedida(TipoMedida medida) {
         this.medida = medida;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public void setFrecuencia(float frecuencia) {
+        this.frecuencia = frecuencia;
     }
 
     @Override
