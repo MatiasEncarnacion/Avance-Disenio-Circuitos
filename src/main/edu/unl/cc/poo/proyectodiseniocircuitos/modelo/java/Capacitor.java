@@ -6,6 +6,7 @@ public class Capacitor extends Componente{
     private float cargaElectrica;
 
     public Capacitor(){
+        this.setMedida(TipoMedida.FARADS);
     }
     public Capacitor(float voltaje, float corriente, float potencia, TipoMedida medida, int reactanciaCapacitiva) {
         super(voltaje, corriente, potencia, TipoMedida.FARADS);
@@ -14,15 +15,33 @@ public class Capacitor extends Componente{
 
     public void calcularCargaElectrica(float capacitancia, float voltaje){
         float cargaElectrica = capacitancia * voltaje;
-        this.cargaElectrica = cargaElectrica;
+        setCargaElectrica(cargaElectrica);
     }
 
     public float getCapacitancia() {
         return capacitancia;
     }
 
+    public void actualizarValores(){
+        setValores(getVoltaje(), getCapacitancia());
+    }
+
+    public void setValores(float voltaje, float capacitancia){
+        this.capacitancia = capacitancia;
+        super.setVoltaje(voltaje);
+        calcularCargaElectrica(voltaje, capacitancia);
+    }
+
+    @Override
     public void setCapacitancia(float capacitancia) {
         this.capacitancia = capacitancia;
+        actualizarValores();
+    }
+
+    @Override
+    public void setVoltaje(float voltaje) {
+        super.setVoltaje(voltaje);
+        actualizarValores();
     }
 
     public float getCargaElectrica() {
