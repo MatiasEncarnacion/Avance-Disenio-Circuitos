@@ -2,6 +2,5 @@
  * @Autor Grupo3
  */
 public enum TipoMedida {
-    OHM, VOLT, AMPERE, HENRY, WATT, FARADS
-    
+    OHM, VOLT, AMPERE, HENRY, WATT, FARADS, HERTZ
 }
