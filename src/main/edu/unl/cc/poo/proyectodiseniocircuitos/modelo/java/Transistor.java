@@ -4,6 +4,9 @@
 public class Transistor extends Componente{
     private float frecuencia;
 
+    public Transistor(){
+    }
+
     public Transistor(float voltaje, float corriente, int resistencia, float potencia, TipoMedida medida, float frecuencia) {
         super(voltaje, corriente, resistencia, potencia, medida);
         this.frecuencia = frecuencia;
@@ -19,7 +22,7 @@ public class Transistor extends Componente{
 
     @Override
     public String toString() {
-        return "Transistor{" + super.toString()+", "+
+        return "Transistor{"+
                 "frecuencia=" + frecuencia +
                 '}';
     }
